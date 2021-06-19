@@ -27,7 +27,7 @@ struct ContentView: View {
                               option3: "Google",
                               option4: "Tinkercademy",
                               correctOption: 1)]
-    
+    //Celeste: tried to do something here
     @State var currentQuestion = 0
     @State var correctAnswers = 0
     
@@ -37,34 +37,23 @@ struct ContentView: View {
     @State var isModalPresented = false
     
     var body: some View {
-        ZStack{
-            Image("background")
-                .resizable()
-                .ignoresSafeArea()
-        VStack {
-            Text(questions[currentQuestion].title)
-                .padding()
-                .background(Color.white)
-                .foregroundColor(.yellow)
-            
-            HStack {
+        NavigationView{
+            ZStack{
+                Image("background")
+                    .resizable()
+                    .ignoresSafeArea()
                 VStack {
-                    Button(questions[currentQuestion].option1) {
-                        didTapOption(optionNumber: 1)
-                    }
-                    .foregroundColor(.white)
-                    Button(questions[currentQuestion].option2) {
-                        didTapOption(optionNumber: 2)
-                    }
-                    .foregroundColor(.white)
-                }
-                .padding()
-                .background(Color.black)
-                VStack {
+                    ProgressView(value: Double(currentQuestion), total: Double(questions.count))
+                        .padding()
                     Text(questions[currentQuestion].title)
                         .padding()
+                        .foregroundColor(.white)
                     
                     VStack {
+                        ProgressView(value: Double(currentQuestion),
+                                             total: Double(questions.count))
+                                    .padding()
+
                         HStack {
                             
                             Button{
@@ -115,15 +104,7 @@ struct ContentView: View {
                     .padding()
                 }
             }
-
-                .padding()
-            .background(Color.black)
-            .foregroundColor(.white)
-            }
-            .padding()
-
             .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
-
         }
         .alert(isPresented: $isAlertPresented) {
             
