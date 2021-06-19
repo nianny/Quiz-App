@@ -43,11 +43,8 @@ struct ContentView: View {
                     .resizable()
                     .ignoresSafeArea()
                 VStack {
-                    ProgressView(value: Double(currentQuestion), total: Double(questions.count))
-                        .padding()
                     Text(questions[currentQuestion].title)
                         .padding()
-                        .foregroundColor(.white)
                     
                     VStack {
                         ProgressView(value: Double(currentQuestion),
