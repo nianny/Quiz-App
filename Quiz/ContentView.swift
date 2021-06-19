@@ -52,7 +52,7 @@ struct ContentView: View {
                             Button{
                                 didTapOption(optionNumber: 1)
                             } label: {
-    //                            Image(systemName: "star.fill")
+                                Image(systemName: "triangle.fill")
                                 Text(questions[currentQuestion].option1)
                             }
                             .padding()
@@ -61,8 +61,11 @@ struct ContentView: View {
                             .background(Color.red)
     //                        .padding()
                             .cornerRadius(10)
-                            Button(questions[currentQuestion].option2) {
+                            Button{
                                 didTapOption(optionNumber: 2)
+                            } label:{
+                                Image(systemName: "square.fill")
+                                Text(questions[currentQuestion].option2)
                             }
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -73,17 +76,26 @@ struct ContentView: View {
                         }
                         .padding()
                         HStack {
-                            Button(questions[currentQuestion].option3) {
+                            Button{
                                 didTapOption(optionNumber: 3)
+                            } label:{
+                                HStack{
+                                    Image(systemName: "square.fill")
+                                    Text(questions[currentQuestion].option3)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
+    //                                    .padding()
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
                             .background(Color.yellow)
                             .foregroundColor(.white)
-    //                        .padding()
                             .cornerRadius(10)
-                            Button(questions[currentQuestion].option4) {
+//                            .padding()
+                            Button{
                                 didTapOption(optionNumber: 4)
+                            } label:{
+                                Image(systemName: "square.fill")
+                                Text(questions[currentQuestion].option4)
                             }
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -102,7 +114,7 @@ struct ContentView: View {
         .alert(isPresented: $isAlertPresented) {
             
             Alert(title: Text(isCorrect ? "Correct" : "Wrong"),
-                  message: Text(isCorrect ? "Congrats, you are kinda smart." : "This is outrageous, with such easy questions, how can you be getting this wrong?!"),
+                  message: Text(isCorrect ? "Not bad, you are kinda smart." : "This is very bad!!! With such easy questions, how can you be getting this wrong?!"),
                   dismissButton: .default(Text("OK")) {
                     currentQuestion += 1
                     
