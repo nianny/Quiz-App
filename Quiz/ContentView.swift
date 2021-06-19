@@ -51,9 +51,11 @@ struct ContentView: View {
                     Button(questions[currentQuestion].option1) {
                         didTapOption(optionNumber: 1)
                     }
+                    .foregroundColor(.white)
                     Button(questions[currentQuestion].option2) {
                         didTapOption(optionNumber: 2)
                     }
+                    .foregroundColor(.white)
                 }
                 .padding()
                 .background(Color.black)
@@ -61,9 +63,11 @@ struct ContentView: View {
                     Button(questions[currentQuestion].option3) {
                         didTapOption(optionNumber: 3)
                     }
+                    .foregroundColor(.white)
                     Button(questions[currentQuestion].option4) {
                         didTapOption(optionNumber: 4)
                     }
+                    .foregroundColor(.white)
                 }
             }
                 .padding()
