@@ -115,15 +115,15 @@ struct ContentView: View {
                     .padding()
                 }
             }
-<<<<<<< HEAD
+
                 .padding()
             .background(Color.black)
             .foregroundColor(.white)
             }
             .padding()
-=======
+
             .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
->>>>>>> main
+
         }
         .alert(isPresented: $isAlertPresented) {
             
