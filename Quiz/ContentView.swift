@@ -114,8 +114,9 @@ struct ContentView: View {
                         }
 //                        .padding()
                     }
-                    .padding()
+                    //                        .padding()
                 }
+                .padding()
             }
             .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
         }
@@ -135,9 +136,9 @@ struct ContentView: View {
             correctAnswers = 0
         }) {
             ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
-//            correctAnswers = 0
+            //            correctAnswers = 0
         }
-            
+        
     }
     
     func didTapOption(optionNumber: Int) {
