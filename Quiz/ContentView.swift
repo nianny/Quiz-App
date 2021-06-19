@@ -34,6 +34,10 @@ struct ContentView: View {
     @State var isModalPresented = false
     
     var body: some View {
+        ZStack{
+            Image("background")
+                .resizable()
+                .ignoresSafeArea()
         VStack {
             Text(questions[currentQuestion].title)
                 .padding()
@@ -56,6 +60,7 @@ struct ContentView: View {
                         didTapOption(optionNumber: 4)
                     }
                 }
+            }
                 .padding()
             }
             .padding()
