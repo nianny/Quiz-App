@@ -47,70 +47,75 @@ struct ContentView: View {
                         .padding()
                     Text(questions[currentQuestion].title)
                         .padding()
-                        .frame(width: 300, height: 100, alignment: .center)
-                        .foregroundColor(.white)
-                        .background(Color.black)
+                        .foregroundColor(.black)
+                        .font(.system(size: 28, weight: .bold))
                     
-                    HStack {
-                        
-                        Button{
-                            didTapOption(optionNumber: 1)
-                        } label: {
-                            Image(systemName: "triangle.fill")
-                            Text(questions[currentQuestion].option1)
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .background(Color.red)
-                        //                        .padding()
-                        .cornerRadius(10)
-                        Button{
-                            didTapOption(optionNumber: 2)
-                        } label:{
-                            Image(systemName: "square.fill")
-                            Text(questions[currentQuestion].option2)
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        //                        .padding()
-                        .cornerRadius(10)
-                    }
-                    .padding()
-                    HStack {
-                        Button{
-                            didTapOption(optionNumber: 3)
-                        } label:{
-                            HStack{
-                                Image(systemName: "square.fill")
-                                Text(questions[currentQuestion].option3)
+                    VStack {
+                        ProgressView(value: Double(currentQuestion),
+                                             total: Double(questions.count))
+                                    .padding()
+
+                        HStack {
+                            
+                            Button{
+                                didTapOption(optionNumber: 1)
+                            } label: {
+                                Image(systemName: "triangle.fill")
+                                Text(questions[currentQuestion].option1)
                             }
                             .padding()
                             .frame(maxWidth: .infinity)
-                            //                                    .padding()
+                            .foregroundColor(.white)
+                            .background(Color.red)
+    //                        .padding()
+                            .cornerRadius(10)
+                            Button{
+                                didTapOption(optionNumber: 2)
+                            } label:{
+                                Image(systemName: "square.fill")
+                                Text(questions[currentQuestion].option2)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+    //                        .padding()
+                            .cornerRadius(10)
                         }
-                        .background(Color.yellow)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        //                            .padding()
-                        Button{
-                            didTapOption(optionNumber: 4)
-                        } label:{
-                            Image(systemName: "square.fill")
-                            Text(questions[currentQuestion].option4)
+//                        .padding()
+                        HStack {
+                            Button{
+                                didTapOption(optionNumber: 3)
+                            } label:{
+                                HStack{
+                                    Image(systemName: "square.fill")
+                                    Text(questions[currentQuestion].option3)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
+    //                                    .padding()
+                            }
+                            .background(Color.yellow)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+//                            .padding()
+                            Button{
+                                didTapOption(optionNumber: 4)
+                            } label:{
+                                Image(systemName: "square.fill")
+                                Text(questions[currentQuestion].option4)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.green)
+                            .foregroundColor(.white)
+    //                        .padding()
+                            .cornerRadius(10)
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        //                        .padding()
-                        .cornerRadius(10)
+//                        .padding()
                     }
                     .padding()
                 }
-                .padding()
             }
             .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
         }
