@@ -27,7 +27,7 @@ struct ContentView: View {
                               option3: "Google",
                               option4: "Tinkercademy",
                               correctOption: 1)]
-    
+    //Celeste: tried to do something here
     @State var currentQuestion = 0
     @State var correctAnswers = 0
     
