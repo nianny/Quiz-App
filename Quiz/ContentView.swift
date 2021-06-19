@@ -42,23 +42,51 @@ struct ContentView: View {
                 Text(questions[currentQuestion].title)
                     .padding()
                 
-                HStack {
-                    VStack {
-                        Button(questions[currentQuestion].option1) {
+                VStack {
+                    HStack {
+                        
+                        Button{
                             didTapOption(optionNumber: 1)
+                        } label: {
+//                            Image(systemName: "star.fill")
+                            Text(questions[currentQuestion].option1)
                         }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .background(Color.red)
+//                        .padding()
+                        .cornerRadius(10)
                         Button(questions[currentQuestion].option2) {
-                            didTapOption(optionNumber: 2)
-                        }
-                    }
-                    .padding()
-                    VStack {
-                        Button(questions[currentQuestion].option3) {
                             didTapOption(optionNumber: 3)
                         }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .background(Color.blue)
+//                        .padding()
+                        .cornerRadius(10)
+                    }
+                    .padding()
+                    HStack {
+                        Button(questions[currentQuestion].option3) {
+                            didTapOption(optionNumber: 2)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.yellow)
+                        .foregroundColor(.white)
+//                        .padding()
+                        .cornerRadius(10)
                         Button(questions[currentQuestion].option4) {
                             didTapOption(optionNumber: 4)
                         }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.green)
+                        .foregroundColor(.white)
+//                        .padding()
+                        .cornerRadius(10)
                     }
                     .padding()
                 }
