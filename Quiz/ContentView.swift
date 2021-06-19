@@ -62,7 +62,7 @@ struct ContentView: View {
     //                        .padding()
                             .cornerRadius(10)
                             Button(questions[currentQuestion].option2) {
-                                didTapOption(optionNumber: 3)
+                                didTapOption(optionNumber: 2)
                             }
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -74,7 +74,7 @@ struct ContentView: View {
                         .padding()
                         HStack {
                             Button(questions[currentQuestion].option3) {
-                                didTapOption(optionNumber: 2)
+                                didTapOption(optionNumber: 3)
                             }
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -111,8 +111,11 @@ struct ContentView: View {
                         currentQuestion = 0
                     }
                   })
-        }.sheet(isPresented: $isModalPresented) {
+        }.sheet(isPresented: $isModalPresented, onDismiss: {
+            correctAnswers = 0
+        }) {
             ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
+//            correctAnswers = 0
         }
             
     }
