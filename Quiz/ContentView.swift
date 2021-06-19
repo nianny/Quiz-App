@@ -13,17 +13,20 @@ struct ContentView: View {
                               option1: "Monday",
                               option2: "Friday",
                               option3: "Wednesday",
-                              option4: "Saturday"),
+                              option4: "Saturday",
+                              correctOption: 4),
                      Question(title: "What framework are we using?",
                               option1: "UIKit",
                               option2: "SwiftUI",
                               option3: "React Native",
-                              option4: "Flutter"),
+                              option4: "Flutter",
+                              correctOption: 2),
                      Question(title: "Which company created Swift?",
                               option1: "Apple",
                               option2: "Orange",
                               option3: "Google",
-                              option4: "Tinkercademy")]
+                              option4: "Tinkercademy",
+                              correctOption: 1)]
     
     @State var currentQuestion = 0
     @State var correctAnswers = 0
@@ -82,7 +85,7 @@ struct ContentView: View {
     }
     
     func didTapOption(optionNumber: Int) {
-        if optionNumber == 2 {
+        if optionNumber == questions[currentQuestion].correctOption {
             print("Correct!")
             isCorrect = true
             correctAnswers += 1
