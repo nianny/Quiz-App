@@ -44,6 +44,7 @@ struct ContentView: View {
         VStack {
             Text(questions[currentQuestion].title)
                 .padding()
+                .background(Color.white)
             
             HStack {
                 VStack {
@@ -57,6 +58,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
                 }
                 .padding()
+                .background(Color.black)
                 VStack {
                     Button(questions[currentQuestion].option3) {
                         didTapOption(optionNumber: 3)
@@ -69,6 +71,7 @@ struct ContentView: View {
                 }
             }
                 .padding()
+            .background(Color.black)
             }
             .padding()
         }
