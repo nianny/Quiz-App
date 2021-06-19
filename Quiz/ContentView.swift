@@ -66,7 +66,7 @@ struct ContentView: View {
                             .padding()
                             .frame(maxWidth: .infinity)
                             .foregroundColor(.white)
-                            .background(Color.red)
+                            .background(Color(.sRGB, red: 198/255, green: 9/255, blue: 41/255, opacity: 1))
     //                        .padding()
                             .cornerRadius(10)
                             Button{
@@ -78,7 +78,7 @@ struct ContentView: View {
                             .padding()
                             .frame(maxWidth: .infinity)
                             .foregroundColor(.white)
-                            .background(Color.blue)
+                            .background(Color(.sRGB, red: 5/255, green: 66/255, blue: 185/255, opacity: 1))
     //                        .padding()
                             .cornerRadius(10)
                         }
@@ -95,7 +95,7 @@ struct ContentView: View {
                                 .frame(maxWidth: .infinity)
     //                                    .padding()
                             }
-                            .background(Color.yellow)
+                            .background(Color(.sRGB, red: 216/255, green: 158/255, blue: 0, opacity: 1))
                             .foregroundColor(.white)
                             .cornerRadius(10)
 //                            .padding()
@@ -107,7 +107,7 @@ struct ContentView: View {
                             }
                             .padding()
                             .frame(maxWidth: .infinity)
-                            .background(Color.green)
+                            .background(Color(.sRGB, red: 16/255, green: 107/255, blue: 3/255, opacity: 1))
                             .foregroundColor(.white)
     //                        .padding()
                             .cornerRadius(10)
