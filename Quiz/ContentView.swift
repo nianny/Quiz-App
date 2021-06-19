@@ -34,31 +34,34 @@ struct ContentView: View {
     @State var isModalPresented = false
     
     var body: some View {
-        VStack {
-            Text(questions[currentQuestion].title)
-                .padding()
-            
-            HStack {
-                VStack {
-                    Button(questions[currentQuestion].option1) {
-                        didTapOption(optionNumber: 1)
+        NavigationView{
+            VStack {
+                Text(questions[currentQuestion].title)
+                    .padding()
+                
+                HStack {
+                    VStack {
+                        Button(questions[currentQuestion].option1) {
+                            didTapOption(optionNumber: 1)
+                        }
+                        Button(questions[currentQuestion].option2) {
+                            didTapOption(optionNumber: 2)
+                        }
                     }
-                    Button(questions[currentQuestion].option2) {
-                        didTapOption(optionNumber: 2)
+                    .padding()
+                    VStack {
+                        Button(questions[currentQuestion].option3) {
+                            didTapOption(optionNumber: 3)
+                        }
+                        Button(questions[currentQuestion].option4) {
+                            didTapOption(optionNumber: 4)
+                        }
                     }
-                }
-                .padding()
-                VStack {
-                    Button(questions[currentQuestion].option3) {
-                        didTapOption(optionNumber: 3)
-                    }
-                    Button(questions[currentQuestion].option4) {
-                        didTapOption(optionNumber: 4)
-                    }
+                    .padding()
                 }
                 .padding()
             }
-            .padding()
+            .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
         }
         .alert(isPresented: $isAlertPresented) {
             
@@ -75,6 +78,7 @@ struct ContentView: View {
         }.sheet(isPresented: $isModalPresented) {
             ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
         }
+            
     }
     
     func didTapOption(optionNumber: Int) {
