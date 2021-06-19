@@ -45,8 +45,13 @@ struct ContentView: View {
                 VStack {
                     Text(questions[currentQuestion].title)
                         .padding()
+                        .foregroundColor(.white)
                     
                     VStack {
+                        ProgressView(value: Double(currentQuestion),
+                                             total: Double(questions.count))
+                                    .padding()
+
                         HStack {
                             
                             Button{
