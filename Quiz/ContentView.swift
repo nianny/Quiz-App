@@ -37,43 +37,67 @@ struct ContentView: View {
     @State var isModalPresented = false
     
     var body: some View {
-        ZStack{
-            Image("background")
-                .resizable()
-                .ignoresSafeArea()
-        VStack {
-            Text(questions[currentQuestion].title)
-                .padding()
-                .background(Color.white)
-            
-            HStack {
+        NavigationView{
+            ZStack{
+                Image("background")
+                    .resizable()
+                    .ignoresSafeArea()
                 VStack {
-                    Button(questions[currentQuestion].option1) {
-                        didTapOption(optionNumber: 1)
+                    Text(questions[currentQuestion].title)
+                        .padding()
+                    
+                    VStack {
+                        HStack {
+                            
+                            Button{
+                                didTapOption(optionNumber: 1)
+                            } label: {
+    //                            Image(systemName: "star.fill")
+                                Text(questions[currentQuestion].option1)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .background(Color.red)
+    //                        .padding()
+                            .cornerRadius(10)
+                            Button(questions[currentQuestion].option2) {
+                                didTapOption(optionNumber: 2)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+    //                        .padding()
+                            .cornerRadius(10)
+                        }
+                        .padding()
+                        HStack {
+                            Button(questions[currentQuestion].option3) {
+                                didTapOption(optionNumber: 3)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.yellow)
+                            .foregroundColor(.white)
+    //                        .padding()
+                            .cornerRadius(10)
+                            Button(questions[currentQuestion].option4) {
+                                didTapOption(optionNumber: 4)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.green)
+                            .foregroundColor(.white)
+    //                        .padding()
+                            .cornerRadius(10)
+                        }
+                        .padding()
                     }
-                    .foregroundColor(.white)
-                    Button(questions[currentQuestion].option2) {
-                        didTapOption(optionNumber: 2)
-                    }
-                    .foregroundColor(.white)
-                }
-                .padding()
-                .background(Color.black)
-                VStack {
-                    Button(questions[currentQuestion].option3) {
-                        didTapOption(optionNumber: 3)
-                    }
-                    .foregroundColor(.white)
-                    Button(questions[currentQuestion].option4) {
-                        didTapOption(optionNumber: 4)
-                    }
-                    .foregroundColor(.white)
+                    .padding()
                 }
             }
-                .padding()
-            .background(Color.black)
-            }
-            .padding()
+            .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
         }
         .alert(isPresented: $isAlertPresented) {
             
@@ -87,8 +111,11 @@ struct ContentView: View {
                         currentQuestion = 0
                     }
                   })
-        }.sheet(isPresented: $isModalPresented) {
+        }.sheet(isPresented: $isModalPresented, onDismiss: {
+            correctAnswers = 0
+        }) {
             ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
+//            correctAnswers = 0
         }
             
     }
