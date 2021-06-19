@@ -45,6 +45,8 @@ struct ContentView: View {
                 VStack {
                     Text(questions[currentQuestion].title)
                         .padding()
+                        .foregroundColor(.black)
+                        .font(.system(size: 28, weight: .bold))
                     
                     VStack {
                         ProgressView(value: Double(currentQuestion),
@@ -56,57 +58,77 @@ struct ContentView: View {
                             Button{
                                 didTapOption(optionNumber: 1)
                             } label: {
-    //                            Image(systemName: "star.fill")
-                                Text(questions[currentQuestion].option1)
+                                HStack{
+                                    Image(systemName: "triangle.fill")
+                                    Text(questions[currentQuestion].option1)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
+                            
                             .foregroundColor(.white)
-                            .background(Color.red)
+                            .background(Color(.sRGB, red: 198/255, green: 9/255, blue: 41/255, opacity: 1))
     //                        .padding()
                             .cornerRadius(10)
-                            Button(questions[currentQuestion].option2) {
+                            Button{
                                 didTapOption(optionNumber: 2)
+                            } label:{
+                                HStack{
+                                    Image(systemName: "square.fill")
+                                    Text(questions[currentQuestion].option2)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
                             .foregroundColor(.white)
-                            .background(Color.blue)
+                            .background(Color(.sRGB, red: 5/255, green: 66/255, blue: 185/255, opacity: 1))
     //                        .padding()
                             .cornerRadius(10)
                         }
-                        .padding()
+//                        .padding()
                         HStack {
-                            Button(questions[currentQuestion].option3) {
+                            Button{
                                 didTapOption(optionNumber: 3)
+                            } label:{
+                                HStack{
+                                    Image(systemName: "square.fill")
+                                    Text(questions[currentQuestion].option3)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
+    //                                    .padding()
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.yellow)
+                            .background(Color(.sRGB, red: 216/255, green: 158/255, blue: 0, opacity: 1))
                             .foregroundColor(.white)
-    //                        .padding()
                             .cornerRadius(10)
-                            Button(questions[currentQuestion].option4) {
+//                            .padding()
+                            Button{
                                 didTapOption(optionNumber: 4)
+                            } label:{
+                                HStack{
+                                    Image(systemName: "square.fill")
+                                    Text(questions[currentQuestion].option4)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.green)
+                            .background(Color(.sRGB, red: 16/255, green: 107/255, blue: 3/255, opacity: 1))
                             .foregroundColor(.white)
     //                        .padding()
                             .cornerRadius(10)
                         }
-                        .padding()
+//                        .padding()
                     }
-                    .padding()
+                    //                        .padding()
                 }
+                .padding()
             }
             .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
         }
         .alert(isPresented: $isAlertPresented) {
             
             Alert(title: Text(isCorrect ? "Correct" : "Wrong"),
-                  message: Text(isCorrect ? "Congrats, you are kinda smart." : "This is outrageous, with such easy questions, how can you be getting this wrong?!"),
+                  message: Text(isCorrect ? "Not bad, you are kinda smart." : "This is very bad!!! With such easy questions, how can you be getting this wrong?!"),
                   dismissButton: .default(Text("OK")) {
                     currentQuestion += 1
                     
@@ -119,9 +141,9 @@ struct ContentView: View {
             correctAnswers = 0
         }) {
             ResultsScreen(score: correctAnswers, totalQuestions: questions.count)
-//            correctAnswers = 0
+            //            correctAnswers = 0
         }
-            
+        
     }
     
     func didTapOption(optionNumber: Int) {

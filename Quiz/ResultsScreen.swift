@@ -13,9 +13,14 @@ struct ResultsScreen: View {
     var totalQuestions: Int
     
     var body: some View {
-        VStack {
-            Text("You got")
-            Text("\(score)/\(totalQuestions)")
+        NavigationView{
+            VStack {
+                CircularProgressView(progress: CGFloat(score) / CGFloat(totalQuestions))
+                    .frame(width: 150, height: 150)
+                Text("You got")
+                Text("\(score)/\(totalQuestions)")
+            }
+            .navigationBarTitle("Results", displayMode: .large)
         }
     }
 }
