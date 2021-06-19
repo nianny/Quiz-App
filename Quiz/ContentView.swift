@@ -91,6 +91,7 @@ struct ContentView: View {
                     .padding()
                 }
                 .padding()
+            .background(Color.black)
             }
             .navigationBarTitle("Question \(currentQuestion+1)", displayMode: .large)
         }
