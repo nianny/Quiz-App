@@ -60,11 +60,14 @@ struct ContentView: View {
                             Button{
                                 didTapOption(optionNumber: 1)
                             } label: {
-                                Image(systemName: "triangle.fill")
-                                Text(questions[currentQuestion].option1)
+                                HStack{
+                                    Image(systemName: "triangle.fill")
+                                    Text(questions[currentQuestion].option1)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
+                            
                             .foregroundColor(.white)
                             .background(Color(.sRGB, red: 198/255, green: 9/255, blue: 41/255, opacity: 1))
     //                        .padding()
@@ -72,11 +75,13 @@ struct ContentView: View {
                             Button{
                                 didTapOption(optionNumber: 2)
                             } label:{
-                                Image(systemName: "square.fill")
-                                Text(questions[currentQuestion].option2)
+                                HStack{
+                                    Image(systemName: "square.fill")
+                                    Text(questions[currentQuestion].option2)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
                             .foregroundColor(.white)
                             .background(Color(.sRGB, red: 5/255, green: 66/255, blue: 185/255, opacity: 1))
     //                        .padding()
@@ -102,11 +107,13 @@ struct ContentView: View {
                             Button{
                                 didTapOption(optionNumber: 4)
                             } label:{
-                                Image(systemName: "square.fill")
-                                Text(questions[currentQuestion].option4)
+                                HStack{
+                                    Image(systemName: "square.fill")
+                                    Text(questions[currentQuestion].option4)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
                             }
-                            .padding()
-                            .frame(maxWidth: .infinity)
                             .background(Color(.sRGB, red: 16/255, green: 107/255, blue: 3/255, opacity: 1))
                             .foregroundColor(.white)
     //                        .padding()
