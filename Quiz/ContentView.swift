@@ -47,7 +47,8 @@ struct ContentView: View {
                         .padding()
                     Text(questions[currentQuestion].title)
                         .padding()
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
+                        .font(.system(size: 28, weight: .bold))
                     
                     VStack {
                         ProgressView(value: Double(currentQuestion),
@@ -81,7 +82,7 @@ struct ContentView: View {
     //                        .padding()
                             .cornerRadius(10)
                         }
-                        .padding()
+//                        .padding()
                         HStack {
                             Button{
                                 didTapOption(optionNumber: 3)
@@ -111,7 +112,7 @@ struct ContentView: View {
     //                        .padding()
                             .cornerRadius(10)
                         }
-                        .padding()
+//                        .padding()
                     }
                     .padding()
                 }
